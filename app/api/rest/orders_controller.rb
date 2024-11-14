@@ -4,13 +4,13 @@ class Rest::OrdersController < ApplicationController
   end
 
   def show
-    render json: { order: "Order #{params[:id]}", links: { self: rest_order_url(params[:id]) } }
+    render json: { order: "Order #{params[:id]}" }
   end
 
   def create
     @order = Db::Order.new(label: "Order #{Db::Order.count + 1}", customer: "Customer", status: "Pending")
     @order.save
-    render json: { order: @order.label }, status: :created
+    render json: { order: @order.label, links: { self: rest_order_url(@order.id) } }, status: :created
   end
 end
 

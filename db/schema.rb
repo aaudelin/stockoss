@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_13_154903) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_14_101429) do
   create_table "orders", force: :cascade do |t|
     t.string "label"
     t.string "customer"
-    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["label"], name: "index_orders_on_label", unique: true
