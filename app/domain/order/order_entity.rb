@@ -1,8 +1,8 @@
 class Order::OrderEntity
-  def initialize(id, label, customer)
-    @id = id
+  def initialize(label, customer)
     @label = label
     @customer = customer
+    @id = nil
     @line_items = []
   end
 
@@ -29,7 +29,7 @@ class Order::OrderEntity
 
   def status
     if line_items.empty?
-      OrderStatus::CREATED
+      return OrderStatus::CREATED
     end
 
     if line_items.any? { |line_item| line_item.price.nil? }

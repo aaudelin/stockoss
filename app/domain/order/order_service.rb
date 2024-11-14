@@ -1,4 +1,4 @@
-class Order::CreateOrderService
+class Order::OrderService
   include Order::CreateOrderUseCase
 
   def initialize(order_repo)
@@ -7,7 +7,7 @@ class Order::CreateOrderService
 
 
   def execute(order_params)
-    order = Order::OrderEntity.new(order_params[:id], order_params[:label], order_params[:customer])
+    order = Order::OrderEntity.new(order_params[:label], order_params[:customer])
     @order_repo.save(order)
     order
   end
