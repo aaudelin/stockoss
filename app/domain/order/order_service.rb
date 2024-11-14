@@ -7,8 +7,8 @@ class Order::OrderService
 
 
   def execute(order_params)
-    order = Order::OrderEntity.new(order_params[:label], order_params[:customer])
+    puts "Use case - Creating order for customer: #{order_params[:customer]}"
+    order = Order::OrderEntity.new_draft(order_params[:customer])
     @order_repo.insert(order)
-    order
   end
 end

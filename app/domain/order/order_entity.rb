@@ -22,8 +22,13 @@ class Order::OrderEntity
     @line_items
   end
 
+  def self.new_draft(customer)
+    label = "#{customer}-#{Time.now.strftime("%H%M%S")}"
+    Order::OrderEntity.new(label, customer)
+  end
+
   def add_line_item(line_item_param)
-    line_item = Order::LineItemEntity.new(line_item_param[:id], line_item_param[:label], line_item_param[:quantity], line_item_param[:ram], line_item_param[:storage], line_item_param[:screen_size], line_item_param[:price], line_item_param[:order_id])
+    line_item = LineItem::LineItemEntity.new(line_item_param[:id], line_item_param[:label], line_item_param[:quantity], line_item_param[:ram], line_item_param[:storage], line_item_param[:screen_size], line_item_param[:price], line_item_param[:order_id])
     @line_items << line_item
   end
 

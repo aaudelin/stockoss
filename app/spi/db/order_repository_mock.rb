@@ -8,6 +8,7 @@ class Db::OrderRepositoryMock
   end
 
   def insert(order)
-    puts "Order saved with label: #{order.label}"
+    puts "Repo mock - Order saved with label: #{order.label}"
+    order
   end
 end

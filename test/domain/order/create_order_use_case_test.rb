@@ -5,9 +5,11 @@ class Order::CreateOrderUseCaseTest < ActiveSupport::TestCase
   use_case = Order::OrderService.new(order_repo)
 
   test "Should create a new order" do
-    order_params = { label: "Order 1", customer: "Customer 1" }
+    order_params = { customer: "Customer 1" }
     order = use_case.execute(order_params)
-    assert_equal order_params[:label], order.label
+
+    assert_not_nil order
+    assert_not_nil order.label
     assert_equal order_params[:customer], order.customer
     assert_equal OrderStatus::CREATED, order.status
   end
