@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
     namespace :rest do
       resources :orders
+      resources :line_items
   end
 end
