@@ -1,12 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   label: AcmeInc-DZIZDE
   created_at: 2024-11-13
   updated_at: 2024-11-13
   customer: Acme Inc
 
 two:
+  id: 2
   label: Google-DBUDZ2
   created_at: 2024-11-13
   updated_at: 2024-11-13

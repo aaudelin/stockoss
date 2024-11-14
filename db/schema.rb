@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_14_101429) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_14_170027) do
+  create_table "line_items", force: :cascade do |t|
+    t.string "label"
+    t.integer "quantity"
+    t.string "ram"
+    t.string "storage"
+    t.string "screen_size"
+    t.float "price"
+    t.integer "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_line_items_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "label"
     t.string "customer"
@@ -18,4 +31,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_14_101429) do
     t.datetime "updated_at", null: false
     t.index ["label"], name: "index_orders_on_label", unique: true
   end
+
+  add_foreign_key "line_items", "orders"
 end

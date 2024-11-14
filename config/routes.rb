@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # root "posts#index"
     namespace :rest do
       resources :orders
-      resources :line_items
+      # resources :line_items
+      get "line_items" => "line_items#index", as: :line_items
+      get "line_items/:id" => "line_items#show", as: :line_item
+      put "line_items/:id/validate" => "line_items#validate", as: :line_item_validate
   end
 end

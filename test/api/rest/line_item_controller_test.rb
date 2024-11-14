@@ -2,22 +2,22 @@ require "test_helper"
 
 class LineItemControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get line_item_index_url
+    get rest_line_items_url
     assert_response :success
   end
 
   test "should get show" do
-    get line_item_show_url
+    get rest_line_item_url(1)
     assert_response :success
   end
 
-  test "should get create" do
-    get line_item_create_url
+  test "should post create" do
+    post rest_line_items_url
     assert_response :success
   end
 
   test "should get validate" do
-    get line_item_validate_url
+    put rest_line_item_validate_url(1)
     assert_response :success
   end
 end
