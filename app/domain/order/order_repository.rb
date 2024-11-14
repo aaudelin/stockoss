@@ -1,5 +1,5 @@
 module Order::OrderRepository
-  def save(order)
+  def insert(order)
     puts "Order saved with label: #{order.label}"
     raise "Not implemented"
   end

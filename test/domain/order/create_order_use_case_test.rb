@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Order::CreateOrderUseCaseTest < ActionDispatch::IntegrationTest
+class Order::CreateOrderUseCaseTest < ActiveSupport::TestCase
   order_repo = Db::OrderRepositoryMock.new
   use_case = Order::OrderService.new(order_repo)
 

@@ -8,7 +8,7 @@ class Order::OrderService
 
   def execute(order_params)
     order = Order::OrderEntity.new(order_params[:label], order_params[:customer])
-    @order_repo.save(order)
+    @order_repo.insert(order)
     order
   end
 end

@@ -7,7 +7,7 @@ class Db::OrderRepositoryMock
     super
   end
 
-  def save(order)
+  def insert(order)
     puts "Order saved with label: #{order.label}"
   end
 end
