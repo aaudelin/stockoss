@@ -7,17 +7,26 @@ class Rest::LineItemsController < ApplicationController
 
   def show
     line_item = Db::LineItem.find(params[:id])
-    render json: { line_item: line_item },
-           links: {
-             self: rest_line_item_url(line_item.id),
-             validate: rest_line_item_validate_url(line_item.id)
-           }
+    render json: {
+      line_item: line_item,
+      links: {
+        self: rest_line_item_url(line_item.id),
+        validate: !line_item.price ? rest_line_item_validate_url(line_item.id) : nil
+      }
+    }
+
   end
 
   def create
     params.permit!
     line_item = Db::LineItem.create(params[:line_item])
-    render json: { line_item: line_item, links: { self: rest_line_item_url(line_item.id) } }, status: :created
+    render json: {
+      line_item: line_item,
+      links: {
+        self: rest_line_item_url(line_item.id),
+        validate: rest_line_item_validate_url(line_item.id)
+      }
+    }, status: :created
   end
 
   def validate
