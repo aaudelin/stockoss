@@ -16,7 +16,7 @@ class Db::SqliteOrderRepository
     line.save
 
     order_db = Db::Order.find(line.order_id)
-    order = Order::Entity.new(order_db.label, order_db.customer)
+    order = Order::Entity.new(order_db.id, order_db.label, order_db.customer)
     order.add_line_items(
       order_db.line_items.map {
         |line_item| LineItem::Entity.new(
