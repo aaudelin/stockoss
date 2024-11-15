@@ -2,7 +2,7 @@ class Rest::OrdersController < ApplicationController
 
   def index
     orders = Db::Order.all
-    orders = orders.map { |order| { label: order.label, customer: order.customer, links: { self: rest_order_url(order.id) } } }
+    orders = orders.map { |order| { id: order.id, label: order.label, customer: order.customer, links: { self: rest_order_url(order.id) } } }
     render json: { orders: orders }
   end
 
