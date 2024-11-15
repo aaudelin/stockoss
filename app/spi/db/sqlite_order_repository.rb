@@ -17,7 +17,6 @@ class Db::SqliteOrderRepository
 
     order_db = Db::Order.find(line.order_id)
     order = Order::Entity.new(order_db.label, order_db.customer)
-    puts order_db.line_items[0][:id].inspect
     order.add_line_items(
       order_db.line_items.map {
         |line_item| LineItem::Entity.new(
