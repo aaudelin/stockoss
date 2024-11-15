@@ -1,5 +1,5 @@
 class Db::SqliteOrderRepository
-  include Order::OrderRepository
+  include Order::Repository
 
   def insert(order)
     puts "Repository - Saving order: #{order.inspect}"

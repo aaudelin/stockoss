@@ -1,7 +1,7 @@
 require "test_helper"
 
 class Db::OrderRepositoryMock
-  include Order::OrderRepository
+  include Order::Repository
 
   def initialize
     super

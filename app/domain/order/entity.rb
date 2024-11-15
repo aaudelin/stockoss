@@ -1,4 +1,4 @@
-class Order::OrderEntity
+class Order::Entity
   def initialize(label, customer)
     @label = label
     @customer = customer
@@ -24,7 +24,7 @@ class Order::OrderEntity
 
   def self.new_draft(customer)
     label = "#{customer}-#{Time.now.strftime("%H%M%S")}"
-    Order::OrderEntity.new(label, customer)
+    Order::Entity.new(label, customer)
   end
 
   def add_line_item(line_item_param)

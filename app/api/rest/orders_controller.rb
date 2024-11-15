@@ -14,7 +14,7 @@ class Rest::OrdersController < ApplicationController
   def create
     # Check DI implementation
     order_repo = Db::SqliteOrderRepository.new
-    order_create_usecase = Order::OrderService.new(order_repo)
+    order_create_usecase = Order::CreateService.new(order_repo)
 
     order = order_create_usecase.execute(params[:order])
     render json: { order: order }, status: :created

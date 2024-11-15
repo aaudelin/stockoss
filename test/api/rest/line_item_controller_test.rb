@@ -12,7 +12,9 @@ class LineItemControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should post create" do
-    post rest_line_items_url
+    post rest_line_items_create_url, params: {
+      line_item: { label: "Macbook Pro M4", quantity: 4, order_id: 1,ram: "16GO", storage: "512GO", screen_size: "16"}
+    }
     assert_response :success
   end
 

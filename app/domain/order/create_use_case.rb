@@ -1,4 +1,4 @@
-module Order::CreateOrderUseCase
+module Order::CreateUseCase
 
   def execute(order_params)
     raise "Not implemented"

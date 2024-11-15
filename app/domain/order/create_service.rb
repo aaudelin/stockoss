@@ -1,5 +1,5 @@
-class Order::OrderService
-  include Order::CreateOrderUseCase
+class Order::CreateService
+  include Order::CreateUseCase
 
   def initialize(order_repo)
     @order_repo = order_repo
@@ -8,7 +8,7 @@ class Order::OrderService
 
   def execute(order_params)
     puts "Use case - Creating order for customer: #{order_params[:customer]}"
-    order = Order::OrderEntity.new_draft(order_params[:customer])
+    order = Order::Entity.new_draft(order_params[:customer])
     @order_repo.insert(order)
   end
 end

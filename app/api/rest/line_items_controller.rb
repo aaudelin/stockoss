@@ -1,7 +1,7 @@
 class Rest::LineItemsController < ApplicationController
   def index
     line_items = Db::LineItem.all
-    line_items = line_items.map { |line_item| { label: line_item.label, links: { self: rest_line_item_url(order.id) } } }
+    line_items = line_items.map { |line_item| { label: line_item.label, links: { self: rest_line_item_url(line_item.id) } } }
     render json: { line_items: line_items, links: { self: rest_line_items_url } }
   end
 
