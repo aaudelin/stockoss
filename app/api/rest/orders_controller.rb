@@ -13,6 +13,7 @@ class Rest::OrdersController < ApplicationController
         id: order.id,
         label: order.label,
         customer: order.customer,
+        status: order.status,
         links: {
           self: rest_order_url(order.id),
           lines: order.line_items.empty? ? nil : rest_line_items_url(order.id)
