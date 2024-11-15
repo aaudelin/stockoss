@@ -27,9 +27,18 @@ class Order::Entity
     Order::Entity.new(label, customer)
   end
 
-  def add_line_item(line_item_param)
-    line_item = LineItem::LineItemEntity.new(line_item_param[:id], line_item_param[:label], line_item_param[:quantity], line_item_param[:ram], line_item_param[:storage], line_item_param[:screen_size], line_item_param[:price], line_item_param[:order_id])
+  def add_line_item(line_item)
     @line_items << line_item
+  end
+
+  def add_line_items(line_items)
+    line_items.each do |line_item|
+      add_line_item(line_item)
+    end
+  end
+
+  def find_line_item(line_item_id)
+    @line_items.find { |line_item| line_item.id.to_i === line_item_id.to_i }
   end
 
   def status

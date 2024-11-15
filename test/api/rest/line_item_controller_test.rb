@@ -18,8 +18,8 @@ class LineItemControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get validate" do
-    put rest_line_item_validate_url(1)
+  test "should put validate" do
+    put rest_line_item_validate_url(1), params: { price: 2000 }
     assert_response :success
   end
 end

@@ -21,5 +21,11 @@ class Rest::LineItemsController < ApplicationController
   end
 
   def validate
+    # Better DI
+    order_repo = Db::SqliteOrderRepository.new
+    validate_use_case = LineItem::ValidateService.new(order_repo)
+
+    line_item = validate_use_case.execute(params[:id], params[:price])
+    render json: { line_item: line_item, links: { self: rest_line_item_url(line_item.id) } }
   end
 end

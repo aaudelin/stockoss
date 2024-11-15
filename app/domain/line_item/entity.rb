@@ -1,4 +1,4 @@
-class LineItem::LineItemEntity
+class LineItem::Entity
 
   def initialize(id, label, quantity, ram, storage, screen_size, price, order_id)
     @id = id
