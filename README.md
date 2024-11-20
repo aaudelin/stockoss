@@ -1,5 +1,15 @@
 # README
 
+## Install dependencies
+```bash
+bundle install
+```
+
+## Migrate
+```bash
+bin/rails db:migrate
+```
+
 ## Run the server
 ```bash
 bin/rails server
