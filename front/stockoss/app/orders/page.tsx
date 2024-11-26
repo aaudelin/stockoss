@@ -1,6 +1,6 @@
 import {Button} from "@/components/ui/button";
 import {columns, Order} from "@/app/orders/order-table";
-import {DataTable} from "@/app/orders/data-table";
+import {DataTable} from "@/components/ui/data-table";
 
 async function getOrders(): Promise<Order[]> {
     const response = await fetch('http://localhost:3000/rest/orders');
